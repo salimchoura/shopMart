@@ -1,0 +1,11 @@
+<app-search
+(searchChange)="prodctsList.updateSearch($event)"></app-search>
+<app-filter 
+#filter
+[inStock]="prodctsList.inStock"
+[outOfStock]="prodctsList.outOfStock"
+[total]="prodctsList.total"
+(filterChange)="prodctsList.updateFilter($event)"></app-filter>
+<app-products-list #prodctsList></app-products-list>
+<app-product-details *ngIf="prodctsList.productSelected"
+[selectedProductDetails]="prodctsList.productSelected" (closePanel)="prodctsList.productSelected=null"></app-product-details>

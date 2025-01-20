@@ -1,0 +1,14 @@
+<div class="ekart--search--product">
+    <!--This is old way to do two way data binding-->
+    <!--<input class="ekart-search-product-input" [value]="searchText" (input)="updateSearchText($event)">-->
+    <input class="ekart-search-product-input" [(ngModel)]="searchText" (input)="checkForReset()">
+    <button 
+    (click)="informParent()"
+    class="btn btn-search" 
+    [ngStyle]="{backgroundColor: searchText==''? 'gray':'black'}" 
+    [disabled]="searchText==''">
+    Search</button>
+</div>
+<div class="ekart-search-result-for" *ngIf="confirmedSearchText!=''">
+    <p><strong>Search result for:</strong> {{confirmedSearchText}}</p>
+</div>
